@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+</head>
+<body>
+  {% if user.is_authenticated %}
+  <ul class="ul"  >
+  <a href="{% url 'logout' %}" class="a"><li>Logout</li></a>
+</ul>
+  {% else %}
+  <ul class="ul"  >
+      <a href="{% url 'login' %}" class="a"><li>Login</li></a>
+      <a href="{% url 'signup'%}" class="a"><li>Register</li></a>
+    
+        
+    </ul>
+
+  {% endif %}
+        
+              {% block content%}
+
+              {% endblock content%}
+    
+</body>
+</html>
